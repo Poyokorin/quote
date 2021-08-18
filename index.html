@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Quote</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<br><br>
+
+				<!-- Main -->
+					<div id="main">
+
+								<!-- Form -->
+
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<!-- Break -->
+
+											<div class="col-12">
+											<h2>Dropdown 1</h2>
+												<select  id="type2" name="service" class="calculate" >
+													<option data-price="0" value="">Dropdown 1</option>
+													<option data-price="10" value="option1">Option 1</option>
+													<option data-price="20" value="option2">Option 2</option>
+													<option data-price="30" value="option3">Option 3</option>
+												</select>
+											</div>
+											<div class="col-12">
+											<h2>Dropdown 2</h2>											
+												<select  id="type2" name="service" class="calculate" >
+													<option data-price="0" value="">Dropdown 2</option>
+													<option data-price="10" value="option1">Option 1</option>
+													<option data-price="20" value="option2">Option 2</option>
+													<option data-price="30" value="option3">Option 3</option>
+												</select>
+											<br>
+											<h2>Radio Button</h2>
+											</div>											
+											<div class="col-4 col-12-small">
+												<input type="radio" class="calculate" data-price="100" id="yes" name="checkbox">
+												<label for="yes">Yes</label>
+											</div>
+											<div class="col-4 col-12-small">
+												<input type="radio" class="calculate" data-price="0" id="no" name="checkbox">
+												<label for="no">No</label>
+											</div>
+											<br>
+											<div class="col-12"><h2>Checkbox</h2></div>
+											<!-- Break -->
+											<div class="col-4 col-12-small">
+												<input type="checkbox" class="calculate" data-price="10" id="checkbox-1" name="checkbox-1">
+												<label for="checkbox-1">Checkbox 1</label>
+											</div>
+											<div class="col-4 col-12-small">
+												<input type="checkbox" class="calculate" data-price="10" id="checkbox-2" name="checkbox-2">
+												<label for="checkbox-2">Checkbox 2</label>
+											</div>
+											<div class="col-4 col-12-small">
+												<input type="checkbox" class="calculate" data-price="10" id="checkbox-3" name="checkbox-3">
+												<label for="checkbox-3">Checkbox 3</label>
+											</div>
+
+											<!-- Break -->
+											<div class="col-12">
+											<h4>Total: $<span id="item-price">0.00</span></h4>
+											</div>
+											<!-- Break -->
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" value="Submit" class="primary" /></li>
+													<li><input type="reset" value="Reset" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+									<hr />
+					</div>
+				<br><br>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script type="text/javascript">
+				$(function(){
+
+					$("select.calculate").on("change", calc);
+					$("input[type=checkbox].calculate").on("click", calc);
+					$("input[type=radio].calculate").on("click", calc);
+  
+				function calc() {
+					var basePrice = 0;
+					newPrice = basePrice;
+
+					$("select.calculate option:selected, input[type=checkbox].calculate:checked, input[type=radio].calculate:checked").each(function () {
+					newPrice += parseInt($(this).data('price'), 10);
+					});
+
+					newPrice = newPrice.toFixed(2);
+					$("#item-price").html(newPrice);
+				}
+			});
+			</script>
+	
+	</body>
+</html>
